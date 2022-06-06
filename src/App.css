@@ -1,20 +1,17 @@
-.App {
-  text-align: center;
+:root {
+  --dark-bg: #3e4754;
+  --card-bg: #293241;
+  --border: #495057;
+  --login-button: #191e26;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--dark-bg);
+  color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.login-page {
+  background-color: var(--dark-bg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +21,63 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.login-wrapper {
+  width: 35%;
+  margin: auto;
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 6px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-wrapper .form-group {
+  text-align: left;
+}
+
+.login-wrapper .form-group label {
+  font-size: 14px;
+}
+
+.login-wrapper input {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0px;
+}
+
+.login-wrapper .form-control:focus {
+  color: var(--white);
+  background-color: transparent;
+  border-color: var(--border);
+  box-shadow: 0 0 0 0.2rem #343f50;
+}
+
+.login-wrapper button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: var(--login-button) !important;
+  border-color: var(--login-button) !important;
+}
+
+.login-wrapper button:focus {
+  box-shadow: 0 0 0 0.2rem #343f50 !important;
+}
+
+.login-wrapper #loginerror {
+  font-size: 14px;
+}
+
+.login-wrapper #regsiter {
+  font-size: 14px;
+}
+
+.login-wrapper #regsiter a {
+  cursor: pointer;
+  font-weight: bold;
+  color: #efc880;
+}
+
+.login-wrapper #regsiter a:hover {
+  text-decoration: underline;
 }
