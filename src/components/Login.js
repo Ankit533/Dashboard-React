@@ -10,7 +10,7 @@ class Login extends React.Component {
       <div className="login-page">
         <div className="container text-center">
           <div className="login-wrapper">
-            <h1>Login</h1>
+            <h2 className="mb-3">Login</h2>
             <form>
               <div className="form-group">
                 <label>Name</label>

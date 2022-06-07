@@ -10,7 +10,8 @@ body {
   color: white;
 }
 
-.login-page {
+.login-page,
+.register-page {
   background-color: var(--dark-bg);
   min-height: 100vh;
   display: flex;
@@ -29,15 +30,18 @@ body {
   border-radius: 6px;
 }
 
-.login-wrapper .form-group {
+.login-wrapper .form-group,
+.register-wrapper .form-group {
   text-align: left;
 }
 
-.login-wrapper .form-group label {
-  font-size: 14px;
+.login-wrapper .form-group label,
+.register-wrapper .form-group label {
+  font-size: 1rem;
 }
 
-.login-wrapper input {
+.login-wrapper input,
+.register-wrapper input {
   background-color: transparent;
   border: none;
   border-radius: 0;
@@ -45,14 +49,16 @@ body {
   padding: 12px 0px;
 }
 
-.login-wrapper .form-control:focus {
+.login-wrapper .form-control:focus,
+.register-wrapper .form-control:focus {
   color: var(--white);
   background-color: transparent;
   border-color: var(--border);
   box-shadow: 0 0 0 0.2rem #343f50;
 }
 
-.login-wrapper button {
+.login-wrapper button,
+.register-wrapper button {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
@@ -60,24 +66,48 @@ body {
   border-color: var(--login-button) !important;
 }
 
-.login-wrapper button:focus {
+.register-wrapper button {
+  width: auto;
+  padding: 10px 30px;
+}
+
+.login-wrapper button:focus,
+.register-wrapper button:focus {
   box-shadow: 0 0 0 0.2rem #343f50 !important;
 }
 
-.login-wrapper #loginerror {
-  font-size: 14px;
+.login-wrapper button:hover,
+.register-wrapper button:hover {
+  background-color: white !important;
+  color: var(--login-button);
 }
 
-.login-wrapper #regsiter {
-  font-size: 14px;
+.login-wrapper #loginerror,
+.register-wrapper #registererror {
+  font-size: 1rem;
 }
 
-.login-wrapper #regsiter a {
+.login-wrapper #regsiter,
+.register-wrapper #login-here {
+  font-size: 1rem;
+}
+
+.login-wrapper #regsiter a,
+.register-wrapper #login-here a {
   cursor: pointer;
   font-weight: bold;
   color: #efc880;
 }
 
-.login-wrapper #regsiter a:hover {
-  text-decoration: underline;
+.login-wrapper #regsiter a:hover,
+.register-wrapper #login-here a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.register-wrapper {
+  margin: auto;
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 6px;
 }
