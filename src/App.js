@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Notfound from "./components/Not-found";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/header" element={<Header />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/404" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/404" />}></Route>
       </Routes>

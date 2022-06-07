@@ -1,8 +1,15 @@
 :root {
-  --dark-bg: #3e4754;
+  --dark-bg: #293241;
   --card-bg: #293241;
   --border: #495057;
   --login-button: #191e26;
+  --white: #ffffff;
+  --black: #000000;
+  --skyblue: #69b7ff;
+  --shade1: #a1a6ae;
+  --shade2: #515965;
+  --shade3: #ffac40;
+  --layout: #3e4754;
 }
 
 body {
@@ -111,3 +118,63 @@ body {
   padding: 40px;
   border-radius: 6px;
 }
+
+/* Dashboard css */
+.layout-main {
+  background-color: var(--layout);
+}
+
+.info-box {
+  padding: 15px 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--white);
+}
+
+.box1 {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.box1 h6 {
+  margin-bottom: 5px;
+}
+
+.box2 {
+  background-color: var(--skyblue);
+}
+
+.box2 h6 {
+  margin-bottom: 5px;
+}
+
+.box3 {
+  background-color: var(--shade1);
+}
+
+.box3 h6 {
+  margin-bottom: 5px;
+}
+
+.box4 {
+  background-color: var(--shade2);
+}
+
+.box4 h6 {
+  margin-bottom: 5px;
+}
+
+.box5 {
+  background-color: var(--shade3);
+}
+
+.box5 h6 {
+  margin-bottom: 5px;
+}
+
+.icon .fa {
+  font-size: 1.3rem;
+}
+
+/* Dashboard css ends here */

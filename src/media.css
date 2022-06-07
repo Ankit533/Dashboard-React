@@ -9,3 +9,9 @@
         width: 60%;
     }
 }
+
+@media screen and (min-width:1200px) {
+    .info-main .col-lg-3 {
+        max-width: 20%;
+    }
+}
