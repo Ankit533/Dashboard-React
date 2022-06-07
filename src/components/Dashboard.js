@@ -1,0 +1,72 @@
+import React from "react";
+
+function Dashboard() {
+  return (
+    <>
+      <div className="container-fluid layout-main p-3">
+        {/* <div className="layout-main"> */}
+        <div className="row info-main">
+          <div className="col-lg-3 col-12 mb-3">
+            <div className="info-box box1">
+              <div className="info">
+                <h6>Graphics</h6>
+                <h1>18%</h1>
+              </div>
+              <div className="icon">
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-12 mb-3">
+            <div className="info-box box2">
+              <div className="info">
+                <h6>New users(Today)</h6>
+                <h1>32</h1>
+              </div>
+              <div className="icon">
+                <i class="fa fa-users" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-12 mb-3">
+            <div className="info-box box3">
+              <div className="info">
+                <h6>Uptime</h6>
+                <h1>5h12m</h1>
+              </div>
+              <div className="icon">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-12 mb-3">
+            <div className="info-box box4">
+              <div className="info">
+                <h6>Text Coverage</h6>
+                <h1>96%</h1>
+              </div>
+              <div className="icon">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-3 col-12 mb-3">
+            <div className="info-box box5">
+              <div className="info">
+                <h6>Cloud users</h6>
+                <h1>4216</h1>
+              </div>
+              <div className="icon">
+                <i class="fa fa-cloud" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* </div> */}
+    </>
+  );
+}
+
+export default Dashboard;
