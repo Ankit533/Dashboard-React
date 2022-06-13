@@ -1,38 +1,168 @@
 :root {
   --dark-bg: #293241;
-  --card-bg: #293241;
+  --card-bg: #191e26;
   --border: #495057;
-  --login-button: #191e26;
+  --login-button: #293241;
   --white: #ffffff;
   --black: #000000;
   --skyblue: #69b7ff;
   --shade1: #a1a6ae;
   --shade2: #515965;
   --shade3: #ffac40;
-  --layout: #3e4754;
+  --layout: #e5e5e5;
 }
 
 body {
-  background-color: var(--dark-bg);
+  background-color: var(--white);
+}
+
+.navbar-light {
+  /* box-shadow:
+    rgb(0 0 0 / 20%) 0px -12px 20px 0px,
+    rgb(0 0 0 / 10%) 0px 2px 4px 0px,
+    rgb(255 255 255 / 5%) 0px 0px 0px 1px inset; */
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  background-color: white;
+}
+
+.text-black {
+  color: var(--black);
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  left: auto;
+  right: 0;
+  padding: .5rem;
+}
+
+.dropdown-userinfo {
+  padding: 0 .5rem;
+}
+
+.dropdown-item {
+  font-size: .9rem;
+  padding: 0.5rem;
+}
+
+.dropdown-item:hover {
+  background-color: #007bff;
   color: white;
 }
 
-.login-page,
-.register-page {
-  background-color: var(--dark-bg);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.headerdropdown:focus {
+  box-shadow: 0 0 0 0.1rem rgb(46 46 46);
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+#dropdownMenuButton {
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+#dropdownMenuButton img {
+  border-radius: 50%;
+}
+
+#input-search {
+  background-color: transparent;
+  padding-top: 10px;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  border: none;
+  z-index: 99;
+}
+
+#inlineFormInputGroupUsername {
+  border: 1px solid black;
+  border-radius: .25rem;
+  padding-right: 2rem;
+}
+
+#inlineFormInputGroupUsername:focus {
+  box-shadow: 0 0 0 0.1rem rgb(46 46 46);
+  /* border: none !important; */
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
   color: white;
+}
+
+.inner-header {
+  height: 80vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#inner-register {
+  height: 85vh;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+}
+
+/* Animation */
+
+.parallax>use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
 }
 
 .login-wrapper {
   width: 35%;
   margin: auto;
-  background-color: var(--card-bg);
+  background-color: var(--white);
   padding: 40px;
   border-radius: 6px;
 }
@@ -49,19 +179,16 @@ body {
 
 .login-wrapper input,
 .register-wrapper input {
-  background-color: transparent;
-  border: none;
+  /* border: none; */
   border-radius: 0;
-  border-bottom: 1px solid var(--border);
-  padding: 12px 0px;
+  border: 1px solid var(--border);
+  padding: 12px 10px;
 }
 
 .login-wrapper .form-control:focus,
 .register-wrapper .form-control:focus {
-  color: var(--white);
-  background-color: transparent;
   border-color: var(--border);
-  box-shadow: 0 0 0 0.2rem #343f50;
+  box-shadow: 0 0 0 0.1rem #343f50;
 }
 
 .login-wrapper button,
@@ -69,8 +196,6 @@ body {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
-  background-color: var(--login-button) !important;
-  border-color: var(--login-button) !important;
 }
 
 .register-wrapper button {
@@ -83,15 +208,10 @@ body {
   box-shadow: 0 0 0 0.2rem #343f50 !important;
 }
 
-.login-wrapper button:hover,
-.register-wrapper button:hover {
-  background-color: white !important;
-  color: var(--login-button);
-}
-
 .login-wrapper #loginerror,
 .register-wrapper #registererror {
   font-size: 1rem;
+  color: black;
 }
 
 .login-wrapper #regsiter,
@@ -103,25 +223,198 @@ body {
 .register-wrapper #login-here a {
   cursor: pointer;
   font-weight: bold;
-  color: #efc880;
+  color: #385fba;
 }
 
 .login-wrapper #regsiter a:hover,
 .register-wrapper #login-here a:hover {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .register-wrapper {
   margin: auto;
-  background-color: var(--card-bg);
+  background-color: var(--white);
   padding: 40px;
   border-radius: 6px;
 }
 
+/* ========================= 404 page ==================================== */
+.container-animate {
+  position: relative;
+}
+
+.notfound-page {
+  background-color: var(--layout);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* Animation */
+
+.push-pop {
+  --duration: .85;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.push-pop>div:nth-of-type(1) {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  -webkit-animation: push-pop-slide calc(var(--duration) * 1s) infinite alternate ease-in-out;
+  animation: push-pop-slide calc(var(--duration) * 1s) infinite alternate ease-in-out;
+  -webkit-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+  top: 100%;
+  left: 0;
+}
+
+.push-pop>div:nth-of-type(1):after {
+  -webkit-animation: push-pop-flip calc(var(--duration) * 1s) infinite alternate ease-in-out;
+  animation: push-pop-flip calc(var(--duration) * 1s) infinite alternate ease-in-out;
+  background: var(--black);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.push-pop>div:nth-of-type(2) {
+  background: var(--black);
+  height: 30px;
+  left: 50%;
+  position: absolute;
+  top: 100%;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  width: 20px;
+}
+
+.push-pop:after,
+.push-pop:before {
+  -webkit-animation-name: push-pop-pushed;
+  animation-name: push-pop-pushed;
+  -webkit-animation-duration: calc(var(--duration) * 1s);
+  animation-duration: calc(var(--duration) * 1s);
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  background: var(--black);
+  bottom: 0;
+  content: '';
+  height: 40px;
+  position: absolute;
+  width: 20px;
+}
+
+.push-pop:before {
+  animation-direction: alternate-reverse;
+  left: 0;
+}
+
+.push-pop:after {
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  right: 0;
+}
+
+@-webkit-keyframes push-pop-pushed {
+
+  0%,
+  72.5% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+  }
+}
+
+@keyframes push-pop-pushed {
+
+  0%,
+  72.5% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+  }
+}
+
+@-webkit-keyframes push-pop-flip {
+  0% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: translate(0, -80px) rotate(90deg);
+    transform: translate(0, -80px) rotate(90deg);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0) rotate(180deg);
+    transform: translate(0, 0) rotate(180deg);
+  }
+}
+
+@keyframes push-pop-flip {
+  0% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: translate(0, -80px) rotate(90deg);
+    transform: translate(0, -80px) rotate(90deg);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0) rotate(180deg);
+    transform: translate(0, 0) rotate(180deg);
+  }
+}
+
+@-webkit-keyframes push-pop-slide {
+  to {
+    -webkit-transform: translate(0, -100%) translate(80px, 0);
+    transform: translate(0, -100%) translate(80px, 0);
+  }
+}
+
+@keyframes push-pop-slide {
+  to {
+    -webkit-transform: translate(0, -100%) translate(80px, 0);
+    transform: translate(0, -100%) translate(80px, 0);
+  }
+}
+
+
+/* Animation ends here */
+
+
+/* ========================= 404 page css ends here ==================================== */
+
 /* Dashboard css */
 .layout-main {
+  position: relative;
+  margin-top: 60px;
   background-color: var(--layout);
+  height: 100vh;
 }
 
 .info-box {

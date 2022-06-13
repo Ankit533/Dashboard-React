@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Notfound from "./components/Not-found";
 import Dashboard from "./components/Dashboard";
+import Contactus from "./components/Contactus";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/header" element={<Header />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/404" element={<Notfound />} />
+        <Route exact path="/contact" element={<Contactus />} />
         <Route path="*" element={<Navigate to="/404" />}></Route>
       </Routes>
     </Router>

@@ -1,6 +1,21 @@
 @media screen and (min-width:0) and (max-width:767px) {
     .login-wrapper {
         width: 100%;
+        padding: 20px;
+    }
+
+    /*login page bg Shrinking for mobile*/
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .register-page .header #inner-register {
+        height: 95vh;
+    }
+
+    .register-wrapper {
+        padding: 20px;
     }
 }
 
