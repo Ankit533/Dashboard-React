@@ -1,17 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import profilelogo from "../images/profile.png";
+// import profilelogo from "../images/profile.png";
 
 function Header() {
   const Navigate = useNavigate();
 
   const [name, setName] = useState([]);
   const [email, setEmail] = useState([]);
+  const [user_name, setUsername] = useState([]);
+  // const [city, setCity] = useState([]);
+  const [w_current, setCurrent] = useState([]);
+  const [w_condition, setCCondition] = useState([]);
+  const [w_location, setLocation] = useState([]);
+
   useEffect(() => {
     const name = localStorage.getItem("User_name");
     setName(name);
     const email = localStorage.getItem("User_email");
     setEmail(email);
+    const user_name = name.slice(0, 1);
+    setUsername(user_name);
+
+    fetch("https://geolocation-db.com/json/").then((result) => {
+      result.json().then((res) => {
+        console.warn(res.city);
+        // setCity(res.city);
+        const city = res.city;
+        fecthapi(city);
+      });
+    });
+    // console.warn(city);
+
+    function fecthapi(city) {
+      var c = city;
+      fetch(
+        `http://api.weatherapi.com/v1/forecast.json?key=3c89b72c27aa4178b02105134223105&q=${c}&days=1&aqi=no&alerts=no`
+      ).then((result) => {
+        result.json().then((res) => {
+          console.warn(res);
+          setCurrent(res.current);
+          setCCondition(res.current.condition);
+          setLocation(res.location);
+        });
+      });
+    }
   }, []);
 
   function logout() {
@@ -40,8 +72,8 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <Link className="nav-link" to="/profile">
-                  Profile
+                <Link className="nav-link" to="/user">
+                  User
                 </Link>
               </li>
               <li className="nav-item active">
@@ -51,29 +83,22 @@ function Header() {
               </li>
             </ul>
             <div className="form-inline my-2 my-lg-0">
-              {/* <div className="mr-sm-2">
-                <div className="input-group" id="search">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Search"
-                    id="inlineFormInputGroupUsername"
-                  />
-                  <i
-                    className="input-group-text fa fa-search "
-                    aria-hidden="true"
-                    id="input-search"
-                  ></i>
+              {/* {!w_condition || !w_current ? (
+                <p></p>
+              ) : (
+                <div>
+                  <img src={w_condition.icon} alt="user-profile" />{" "}
+                  <h6 className="mb-0 mx-1">{w_current.temp_c}°C</h6>
                 </div>
-              </div> */}
-              <div className="dropdown mr-sm-2">
+              )} */}
+              <div className="dropdown mx-sm-2">
                 <button
                   className="btn dropdown-toggle p-0 headerdropdown"
                   type="button"
                   id="dropdownMenuButton"
                   data-toggle="dropdown"
                 >
-                  <img src={profilelogo} alt="user-profile" />
+                  <p className="user_name">{user_name}</p>
                 </button>
                 <div
                   className="dropdown-menu"
@@ -84,6 +109,10 @@ function Header() {
                     <p className="text-dark mb-0">{email}</p>
                   </div>
                   <hr></hr>
+                  {/* <p className="dropdown-item mb-0">
+                    <i className="fa fa-map-marker" aria-hidden="true"></i>
+                    &nbsp; {w_location.name}
+                  </p> */}
                   <Link className="dropdown-item" to="/profile">
                     <i className="fa fa-user" aria-hidden="true"></i>
                     &nbsp; Profile

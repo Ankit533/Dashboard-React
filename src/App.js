@@ -11,6 +11,7 @@ import Register from "./components/Register";
 import Notfound from "./components/Not-found";
 import Dashboard from "./components/Dashboard";
 import Contactus from "./components/Contactus";
+import Users from "./components/Users";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/404" element={<Notfound />} />
         <Route exact path="/contact" element={<Contactus />} />
+        <Route exact path="/user" element={<Users />} />
         <Route path="*" element={<Navigate to="/404" />}></Route>
       </Routes>
     </Router>

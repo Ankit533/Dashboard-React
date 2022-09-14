@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
@@ -16,6 +16,62 @@ function Register() {
 
   // check ends here
 
+  // User register
+
+  const [Fname, setFName] = useState("");
+  const [Lname, setLName] = useState("");
+  const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
+  const [org, setOrganisation] = useState("");
+  const [desg, setDesignation] = useState("");
+
+  function registeruser() {
+    if (
+      Fname === "" ||
+      email === "" ||
+      Lname === "" ||
+      country === "" ||
+      org === "" ||
+      desg === ""
+    ) {
+      document.getElementById("registererror").innerHTML =
+        "All fields are required!";
+    } else {
+      var url = "https://belive.multitvsolution.com:3600/users";
+      fetch(url, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: Fname,
+          lastname: Lname,
+          org: org, //shop or firm or company
+          phone: country,
+          job: desg,
+          email: email,
+          eventname: "621726e2505a9",
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.id === "exist") {
+            document.getElementById("registererror").innerHTML =
+              "Email id already registered!";
+          } else {
+            document.getElementById("registererror").innerHTML =
+              "Thankyou for registration!";
+            setTimeout(() => {
+              Navigate("/");
+            }, 3000);
+          }
+        });
+    }
+  }
+
+  // user register ends here
   return (
     <>
       <div className="register-page">
@@ -34,6 +90,7 @@ function Register() {
                           className="form-control"
                           id="firstname"
                           placeholder="First Name"
+                          onChange={(e) => setFName(e.target.value)}
                         />
                       </div>
                     </div>
@@ -44,7 +101,8 @@ function Register() {
                           type="text"
                           className="form-control"
                           id="lastname"
-                          placeholder="First Name"
+                          placeholder="Last Name"
+                          onChange={(e) => setLName(e.target.value)}
                         />
                       </div>
                     </div>
@@ -56,6 +114,7 @@ function Register() {
                           className="form-control"
                           id="organisation"
                           placeholder="Organisation"
+                          onChange={(e) => setOrganisation(e.target.value)}
                         />
                       </div>
                     </div>
@@ -67,6 +126,7 @@ function Register() {
                           className="form-control"
                           id="designation"
                           placeholder="Designation"
+                          onChange={(e) => setDesignation(e.target.value)}
                         />
                       </div>
                     </div>
@@ -78,6 +138,7 @@ function Register() {
                           className="form-control"
                           id="email"
                           placeholder="E-mail"
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                       </div>
                     </div>
@@ -89,6 +150,7 @@ function Register() {
                           className="form-control"
                           id="country"
                           placeholder="Country"
+                          onChange={(e) => setCountry(e.target.value)}
                         />
                       </div>
                     </div>
@@ -98,7 +160,11 @@ function Register() {
                       </div>
                     </div>
                     <div className="col-lg-12 col-md-12 text-left">
-                      <button type="submit" className="btn btn-primary">
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={registeruser}
+                      >
                         Signup
                       </button>
                     </div>

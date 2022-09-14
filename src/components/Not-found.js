@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 import { Link } from "react-router-dom";
 
 class Notfound extends React.Component {
@@ -21,6 +22,7 @@ class Notfound extends React.Component {
             <button className="btn btn-primary">Go back to home</button>
           </Link>
         </div>
+        <Footer />
       </>
     );
   }
