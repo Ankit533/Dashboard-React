@@ -34,15 +34,17 @@ function Login() {
         "https://belive.multitvsolution.com:3600/user/621726e2505a9/" + email;
       fetch(url).then((response) => {
         response.json().then((result) => {
-          if (result.length !== "0") {
+          if (result.length == "0") {
+            document.getElementById("loginerror").innerHTML =
+              "Inavlid Credentials";
+          } else {
             document.getElementById("loginerror").innerHTML = "Welcome!!";
             localStorage.setItem("User_id", result[0].id);
             localStorage.setItem("User_name", result[0].name);
             localStorage.setItem("User_email", result[0].email);
-            Navigate("/dashboard");
-          } else {
-            document.getElementById("loginerror").innerHTML =
-              "Inavlid Credentials";
+            setTimeout(() => {
+              Navigate("/dashboard");
+            }, "1500");
           }
         });
       });
